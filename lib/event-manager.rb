@@ -1,6 +1,16 @@
 require 'erb'
 require 'time'
 require 'date'
+require 'dotenv'
+require 'csv'
+require 'google/apis/civicinfo_v2'
+
+Dotenv.load('../api.env')
+
+require 'csv'
+require 'google/apis/civicinfo_v2'
+
+=======
 require 'csv'
 require 'google/apis/civicinfo_v2'
 
@@ -10,7 +20,7 @@ end
 
 def legislator_by_zipcode(zipcode)
   civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
-  civic_info.key = '***REMOVED***'
+  civic_info.key = ENV['API_KEY']
 
   legislators = civic_info.representative_info_by_address(
     address: zipcode,
