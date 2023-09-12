@@ -10,10 +10,6 @@ Dotenv.load('../api.env')
 require 'csv'
 require 'google/apis/civicinfo_v2'
 
-=======
-require 'csv'
-require 'google/apis/civicinfo_v2'
-
 def clean_zipcode(zip_code)
   zip_code.nil? ? '00000' : zip_code.rjust(5, '0')[0..4]
 end
